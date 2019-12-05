@@ -9,6 +9,7 @@ import scrapy
 
 
 class KodeposItem(scrapy.Item):
+  kodewil = scrapy.Field()
   provinsi = scrapy.Field()
   daerah_t2 = scrapy.Field() # Daerah Tingkat 2
   kabupaten_kota = scrapy.Field()

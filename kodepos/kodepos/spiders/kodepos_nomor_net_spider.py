@@ -65,16 +65,18 @@ class KodeposNomorNetSpider(scrapy.Spider):
     for row in rows:
       cols = row.css('td')
 
-      provinsi = prov
       kodepos = cols[1].css('a.ktu::text').extract_first(default='n/a')
       desa = cols[2].css('a::text').extract_first(default='n/a')
-      kecamatan = cols[3].css('a::text').extract_first(default='n/a')
-      daerah_t2 = cols[4].css('td::text').extract_first()
-      kabupaten_kota = cols[5].css('a::text').extract_first(default='n/a')
+      kodewil = cols[3].css('a::text').extract_first(default='n/a')
+      kecamatan = cols[4].css('a::text').extract_first(default='n/a')
+      daerah_t2 = cols[5].css('td::text').extract_first()
+      kabupaten_kota = cols[6].css('a::text').extract_first(default='n/a')
+      provinsi = prov
 
       yield KodeposItem(provinsi=provinsi, kodepos=kodepos, desa=desa,
-                        kecamatan=kecamatan, daerah_t2=daerah_t2,
-                        kabupaten_kota=kabupaten_kota)
+                  kecamatan=kecamatan, daerah_t2=daerah_t2,
+                  kabupaten_kota=kabupaten_kota, kodewil=kodewil)
+
     # END: Parse response
 
     for url in response.css('td a.tpage::attr(href)').extract():

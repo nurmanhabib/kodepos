@@ -19,8 +19,8 @@ NEWSPIDER_MODULE = 'kodepos.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'kodepos (+https://ekaputra07.github.io/kodepos/)'
 
-FEED_URI = 'file://' + os.path.join(os.getcwd(), '..', 'output/kodepos.jsonl')
-FEED_FORMAT = 'jsonlines' # http://jsonlines.org/
+FEED_URI = 'file://' + os.path.join(os.getcwd(), '..', 'output/kodepos2019.csv')
+FEED_FORMAT = 'csv' # or jsonlines http://jsonlines.org/
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
